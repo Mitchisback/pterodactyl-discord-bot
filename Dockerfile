@@ -36,7 +36,7 @@ RUN apt -y install lua5.3
 
 USER container
 ENV  USER container
-ENV  HOME /home/container
+ENV  HOME /
 
 WORKDIR /
 
