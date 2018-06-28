@@ -4,8 +4,9 @@ MAINTAINER Celestialdeath99 <celestialdeath99@mcresolution.org>
 
 RUN apt update \
     && apt upgrade -y \
-    && apt -y install curl software-properties-common locales git sudo \
-    && useradd -d /home/container -m container echo "container:container" | chpasswd && adduser container sudo
+    && apt -y install curl software-properties-common locales git sudo
+    
+RUN useradd container && echo "container:container" | chpasswd && adduser container sudo
 
     # Ensure UTF-8
 RUN locale-gen en_US.UTF-8
@@ -37,7 +38,7 @@ USER container
 ENV  USER container
 ENV  HOME /home/container
 
-WORKDIR /home/container
+WORKDIR /
 
 COPY ./entrypoint.sh /entrypoint.sh
 
