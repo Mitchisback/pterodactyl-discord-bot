@@ -4,8 +4,8 @@ MAINTAINER Celestialdeath99 <celestialdeath99@mcresolution.org>
 
 RUN apt update \
     && apt upgrade -y \
-    && apt -y install curl software-properties-common locales git \
-    && useradd -d /home/container -m container
+    && apt -y install curl software-properties-common locales git sudo \
+    && useradd -d /home/container -m container echo "container:container" | chpasswd && adduser container sudo
 
     # Ensure UTF-8
 RUN locale-gen en_US.UTF-8
